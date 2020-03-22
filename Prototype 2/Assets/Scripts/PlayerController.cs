@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 
     public float horizontalInput;
     public float movementSpeed = 10.0f;
+    public GameObject projectilePrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,14 +17,20 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() { 
+    void Update() {
         handlePlayerBoundaries();
         handleMovementByPlayerInput();
+        shootProjectile();
+    }
+
+    private void shootProjectile() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
     }
 
     private void handlePlayerBoundaries() {
         handlePlayerLeftBoundary();
-
         handlePlayerRightBoundary();
     }
 
