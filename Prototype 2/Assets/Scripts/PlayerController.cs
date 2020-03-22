@@ -15,20 +15,31 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-        var leftBoundary = -10;
+    void Update() { 
+        handlePlayerBoundaries();
+        handleMovementByPlayerInput();
+    }
 
-        if(transform.position.x < leftBoundary) {
-            transform.position = new Vector3(leftBoundary, transform.position.y, transform.position.z);
-        }
+    private void handlePlayerBoundaries() {
+        handlePlayerLeftBoundary();
 
+        handlePlayerRightBoundary();
+    }
+
+    private void handlePlayerRightBoundary() {
         var rightBoundary = 10;
 
-        if(transform.position.x > rightBoundary) {
+        if (transform.position.x > rightBoundary) {
             transform.position = new Vector3(rightBoundary, transform.position.y, transform.position.z);
         }
+    }
 
-        handleMovementByPlayerInput();
+    private void handlePlayerLeftBoundary() {
+        var leftBoundary = -10;
+
+        if (transform.position.x < leftBoundary) {
+            transform.position = new Vector3(leftBoundary, transform.position.y, transform.position.z);
+        }
     }
 
     private void handleMovementByPlayerInput() {
