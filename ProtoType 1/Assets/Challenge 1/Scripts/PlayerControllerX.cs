@@ -26,7 +26,7 @@ public class PlayerControllerX : MonoBehaviour
 
     private void handlePlaneTiltByPlayerInput()  {
         var verticalInput = Input.GetAxis("Vertical");
-        var tiltSpeed = 20;
+        var tiltSpeed = 50;
 
         // tilt the plane up/down based on up/down arrow keys
         transform.Rotate(Vector3.right * tiltSpeed * Time.deltaTime * verticalInput);

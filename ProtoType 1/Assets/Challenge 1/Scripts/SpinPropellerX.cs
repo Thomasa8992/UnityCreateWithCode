@@ -17,7 +17,7 @@ public class SpinPropellerX : MonoBehaviour
     }
 
     private void handlePropellorRotation() {
-        var propellerSpinSpeed = 3.0f;
+        var propellerSpinSpeed = 300.0f;
         var propellerRotation = new Vector3(0, 0, 1);
 
         transform.Rotate(propellerRotation * Time.deltaTime * propellerSpinSpeed);
