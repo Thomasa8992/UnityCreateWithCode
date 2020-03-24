@@ -19,12 +19,17 @@ public class DestroyOutOfBounds : MonoBehaviour
     }
 
     private void handleOutOfBoundsObject() {
-        if (objectPositionIsOutOfBounds()) {
+        var foodIsOutOfBounds = transform.position.z > topBoundary;
+        var animalIsOuOfBounds = transform.position.z < lowerBoundary;
+
+        if (foodIsOutOfBounds) {
+            Destroy(gameObject);
+        } 
+        else if (animalIsOuOfBounds) {
+            Debug.Log("Game Over!");
             Destroy(gameObject);
         }
     }
 
-    private bool objectPositionIsOutOfBounds() {
-        return transform.position.z > topBoundary || transform.position.z < lowerBoundary;
-    }
+
 }   
